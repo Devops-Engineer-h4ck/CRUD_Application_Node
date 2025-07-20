@@ -3,13 +3,25 @@
     <td><%= i + 1 %></td>
     <td><%= users[i].name %></td>
     <td><%= users[i].email %></td>
-    <td><%= users[i].gender %></td>
-    <td><%= users[i].status %></td>
     <td>
-        <a href="/update-user?id=<%= users[i]._id%>" class="btn border-shadow update">
+        <% if(users[i].gender === 'Male') { %>
+            <span class="badge badge-male"><i class="fas fa-male"></i>Male</span>
+        <% } else { %>
+            <span class="badge badge-female"><i class="fas fa-female"></i>Female</span>
+        <% } %>
+    </td>
+    <td>
+        <% if(users[i].status === 'Active') { %>
+            <span class="badge badge-success">Active</span>
+        <% } else { %>
+            <span class="badge badge-danger">Inactive</span>
+        <% } %>
+    </td>
+    <td class="actions">
+        <a href="/update-user?id=<%= users[i]._id%>" class="btn border-shadow btn-update">
             <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
         </a>
-        <a class="btn border-shadow delete" data-id=<%= users[i]._id%> >
+        <a class="btn border-shadow btn-delete" data-id=<%= users[i]._id%> >
             <span class="text-gradient"><i class="fas fa-times"></i></span>
         </a>
     </td>

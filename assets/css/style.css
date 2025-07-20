@@ -5,6 +5,15 @@
     --light: #adb5bd;
     --border: #dee2e6;
     --border-btn: #edf2f4;
+    --success: #06d6a0;
+    --danger: #ef233c;
+    --primary: #8e2de2;
+    --secondary: #4a00e0;
+    --gradient: linear-gradient(to right, #8d2de26b, #4a00e06b);
+    --gradient-text: linear-gradient(to right, #8d2de26b, #4a00e06b);
+    --gradient-bg: linear-gradient(to right, #8d2de26b, #4a00e06b);
+    --gradient-border: linear-gradient(to right, #8d2de26b, #4a00e06b);
+    --gradient-btn: linear-gradient(to right, #8d2de26b, #4a00e06b);
 }
 
 * {
@@ -104,7 +113,33 @@ table{
 }
 
 .table tr:hover{
-    background-color:#06d6a0 ;
+    background: var(--gradient-bg);
+    transition: background 0.3s ease;
+    animation: pulse 1.5s linear;
+}
+
+.table tr:not(:hover){
+    animation: not-pulse 1.5s 1;
+}
+
+@keyframes pulse {
+    0% {
+        scale: 1;
+    }
+    100% {
+        scale: 1.02;
+    }
+    
+}
+
+@keyframes not-pulse {
+    0% {
+        scale: 1.02;
+    }
+    100% {
+        scale: 1;
+    }
+    
 }
 
 .table tr:hover td > a{
@@ -229,4 +264,55 @@ table{
 #add_user .form-group .btn:hover{
     background-color: var(--dark);
     color: var(--border);
+}
+
+.badge {
+    display: flex;
+    width: fit-content;
+    gap: .5em;
+    padding: .5em 1em;
+    font-size: 1em;
+    border-radius: .2em;
+    color: #fff;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 600;
+    text-transform: capitalize;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge-success {
+    background-color: var(--success);
+}
+
+.badge-danger {
+    background-color: var(--danger);
+}
+
+.badge-male {
+    background-color: var(--primary);
+}
+
+.badge-female {
+    background-color: var(--secondary);
+}
+
+.btn > *{
+    font-size: 1.1em;
+    margin: 0 .2em;
+    border-radius: .2em;
+    color: #fff;
+    font-family: 'PT Sans', sans-serif;
+    
+}
+
+.actions .btn-update{
+    border: 1px solid var(--success);
+    border-radius: .2em;
+    background: rgba(22, 219, 147, 0.1);
+}
+.actions .btn-delete{
+    border: 1px solid var(--danger);
+    border-radius: .2em;
+    background: rgba(239, 35, 60, 0.1);
 }
